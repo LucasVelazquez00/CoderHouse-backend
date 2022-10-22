@@ -1,0 +1,1 @@
+[{"title":" 1111RTXs 4070","price":730040,"thumbnail":"grafica.png","id":1},{"title":" 2222RTX 4070","price":30040,"thumbnail":"grfica.png","id":2},{"title":" 3333RTX 4070","price":30040,"thumbnail":"grfica.png","id":3}]
