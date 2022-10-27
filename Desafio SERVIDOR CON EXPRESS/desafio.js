@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+
+
 class Contenedor {
     constructor(file){
         this.file = file
@@ -39,17 +41,24 @@ class Contenedor {
             let variable = JSON.parse(data)
             //console.log('soy yo, dio'+variable);
             const object = variable.find(obj => obj.id === number)
-            return console.log(object); 
+            return object
         }
         catch {
-            return console.log(null); 
+            return null
         }
     }
 
     async getAll (){
         const data = await fs.promises.readFile(this.file, "utf-8")
-        const aux_array = JSON.stringify(data)
+        const aux_array = JSON.parse(data)
         return console.log(aux_array); 
+        //return console.log(this.new_array); 
+    }
+
+    async read (file){
+        const data = await fs.promises.readFile(file, "utf-8")
+        const aux_array = JSON.parse(data)
+        return aux_array
         //return console.log(this.new_array); 
     }
 
@@ -72,16 +81,17 @@ class Contenedor {
 
 }
 
-const new_file = new Contenedor('file.txt');
+const new_file = new Contenedor('products.txt');
 new_file.save({ title: " ola", price: 10000, thumbnail: "hola.png"})
 new_file.save({ title: " adios", price: 30000, thumbnail: "adios.png"})
 
 
-new_file.getById(2)
+//new_file.getById(2)
 
 new_file.getAll()
 
-new_file.deleteById(2)
+//new_file.deleteById(2)
 
-new_file.deleteAll()
+//new_file.deleteAll()
 
+module.exports = Contenedor;
